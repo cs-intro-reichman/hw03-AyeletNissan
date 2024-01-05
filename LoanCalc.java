@@ -24,11 +24,11 @@ public class LoanCalc {
 		System.out.println();
 		System.out.println("number of iterations: " + iterationCounter);
 
-		// Computes the periodical payment using bisection search
+	/* 	// Computes the periodical payment using bisection search
 		System.out.print("Periodical payment, using bi-section search: ");
 		System.out.printf("%.2f", bisectionSolver(loan, rate, n, epsilon));
 		System.out.println();
-		System.out.println("number of iterations: " + iterationCounter);
+		System.out.println("number of iterations: " + iterationCounter);    */
 	}
 	
 	/**
@@ -39,8 +39,13 @@ public class LoanCalc {
 	*/
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
-    	// Replace the following statement with your code
-    	return 0;
+		double g = loan/n;
+		double increment = epsilon/100;
+		while (endBalance(g, rate, n, g) > 0) {
+			g+=increment;
+			iterationCounter++;
+		}
+    	return g;
     }
     
     /**
@@ -60,7 +65,10 @@ public class LoanCalc {
 	* interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	*/
 	private static double endBalance(double loan, double rate, int n, double payment) {
-		// Replace the following statement with your code
-    	return 0;
+		double endingbalance = loan;
+		for(int i=1; i<=n; i++){
+			endingbalance = (endingbalance - payment)*(1 + (rate/100));
+		}
+    	return endingbalance;
 	}
 }
