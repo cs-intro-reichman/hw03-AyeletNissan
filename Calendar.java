@@ -14,10 +14,6 @@ public class Calendar {
                 nDaysInMonth = nDaysInMonth(j, year);
                 dayOfMonth = 1;
                 for(int k=dayOfMonth; k<=nDaysInMonth; k++){
-                    /*if(dayOfWeek==1){
-                        System.out.println(dayOfMonth+"/"+j+"/"+year+" Sunday");
-                    } 
-                    else System.out.println(dayOfMonth+"/"+j+"/"+year);*/
                     dayOfMonth++;
                     dayOfWeek++;
                     if(dayOfWeek==8) dayOfWeek = 1;
@@ -26,7 +22,7 @@ public class Calendar {
         year++;
         }
         month=1;
-        
+
 				for(int j=month; j<=12; j++){
 					nDaysInMonth = nDaysInMonth(j, year);
                     dayOfMonth = 1;
